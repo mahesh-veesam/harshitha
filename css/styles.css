@@ -1,0 +1,288 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Inter", "gentium plus" ;
+}
+main{
+    z-index: -1;
+    height: 100vh;
+    background-image: url(../assets/bday.jpg); /* Ensure the image path is correct */
+    background-position: center; 
+    backdrop-filter: blur(15px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(15px); /* For Safari support */
+    mix-blend-mode: darken; /* Blend the background with the overlay */
+    padding: 30px;
+}
+.container{
+    position: relative;
+    height: 90vh;
+    width: 70%;
+    margin: 30% auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #75186e;
+    border-radius: 30% 10% 30% 10%;
+    z-index: 999;
+    animation: zoomIn 5s ease-in forwards; /* Apply the updated zoom-in animation */
+}
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.1); /* Start smaller */
+        opacity: 1; /* Fully transparent */
+    }
+    100% {
+        transform: scale(1); /* Final size */
+        opacity: 1; /* Fully visible */
+    }
+}
+
+.image{
+    height: 30vh;
+    width: 20vw;
+    margin: 2rem;
+}
+.msg{
+    position: relative;
+    width: 50%;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    animation: typing 3s steps(30, end);
+}
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50px 20px 50px 20px;
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #430350, #c9c4fa); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1; /* Ensure it starts visible */
+    transition: opacity 1s ease-in-out; /* Smooth fade-out effect */
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top: 5px solid #ff6f61;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-message {
+    text-align: center;
+    font-family: gentium plus;
+    animation: fadeInOut 2s infinite;
+}
+
+.loading-message h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(211, 0, 158, 0.2);
+}
+
+.loading-message h1, .intro-container h2 {
+    text-align: center;
+    width: 100%; /* Ensure the text container takes full width */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide any overflow during typing */
+    display: inline-block; /* Keep the text inline */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+#intro-tab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff99c9, #9aa9ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    opacity: 1; /* Ensure it starts visible */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-out effect */
+}
+
+.intro-container {
+    text-align: center;
+    font-family: "gentium plus";
+    font-weight: 600;
+    color: #333;
+}
+
+.intro-container h2{
+    line-height: 50px;
+}
+
+/* .intro-container h2::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+} */
+
+#start-button {
+    margin-top: -20px;
+    padding: 10px 50px;
+    font-size: 1.2rem;
+    background-color: #490037;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Fully transparent */
+    animation: showButton 1s ease-in-out 5s forwards; /* Delay visibility until h2 animation completes */
+}
+
+@keyframes showButton {
+    to {
+        visibility: visible; /* Make it visible */
+        opacity: 1; /* Fully opaque */
+    }
+}
+
+#start-button:hover {
+    background-color: #ac008f;
+}
+
+main {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+.intro-container img {
+    opacity: 0.7; /* Make the image slightly transparent */
+    width: 50%; /* Reduce the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px auto; /* Center the image */
+    display: block; /* Ensure proper centering */
+    mix-blend-mode:darken;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    .container {
+        height: 80vh; /* Adjust height for smaller screens */
+        width: 90%; /* Increase width to fit smaller screens */
+        border-radius: 20% 10% 20% 10%; /* Adjust border radius */
+        padding: 10px; /* Add padding */
+    }
+
+    .msg {
+        font-size: 1.2rem; /* Reduce font size for smaller screens */
+        width: 80%; /* Adjust width for typing animation */
+    }
+
+    .image {
+        height: 20vh; /* Reduce image height */
+        width: 40vw; /* Adjust image width */
+        margin: 1rem; /* Adjust margin */
+    }
+
+    #start-button {
+        font-size: 1rem; /* Adjust button font size */
+        padding: 8px 30px; /* Adjust button padding */
+    }
+
+    .intro-container img {
+        width: 70%; /* Adjust image size */
+        margin: 5px auto; /* Adjust margin */
+    }
+
+    main {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 75vh; /* Further adjust height for very small screens */
+        width: 95%; /* Increase width to fit smaller screens */
+        border-radius: 15% 5% 15% 5%; /* Adjust border radius */
+    }
+
+    .msg {
+        font-size: 1rem; /* Further reduce font size */
+    }
+
+    .image {
+        height: 15vh; /* Further reduce image height */
+        width: 50vw; /* Adjust image width */
+    }
+
+    #start-button {
+        font-size: 0.9rem; /* Further adjust button font size */
+        padding: 6px 20px; /* Adjust button padding */
+    }
+
+    .intro-container img {
+        width: 80%; /* Further adjust image size */
+    }
+}
