@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const introTab = document.getElementById('intro-tab');
     const mainContent = document.querySelector('main');
     const startButton = document.getElementById('start-button');
+    const introContainer = document.querySelector('.intro-container');
+    const ccHeading = document.querySelector('#intro-container h1');
+    const introMessage = document.querySelector('#intro-container h2');
+    const messageText = 'Wish you a very veryy<br>Happy Birthdayyyy <br> <img src="../assets/heart2.jpg" alt="">';
+
 
     // Typing effect for the loading screen message
     const loadingMessage = document.querySelector('#loading-screen h1');
@@ -38,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const introAudio2 = new Audio('../assets/song.mp3'); // Second audio file
     const introImage = document.querySelector('#intro-tab'); // Select the image in h2
 
+    
     // Play the first audio when the site loads
     // introAudio1.play().catch((error) => {
     //     console.log('Autoplay blocked. Audio will play after user interaction.');
@@ -48,11 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             loadingScreen.style.display = 'none'; // Hide after fade-out
             introTab.style.display = 'flex'; // Show intro tab
-
-            // Start typing effect after intro tab is displayed
-            const introMessage = document.querySelector('#intro-tab h2');
-            const messageText = 'Wish you a very veryy<br>Happy Birthdayyyy <br> <img src="../assets/heart2.jpg" alt="">';
-            typeText(introMessage, messageText, 100); // Adjust delay as needed
+ 
+           
 
         }, 1000); // Match the CSS transition duration
     }, 1800); // Set loading screen time to 5 seconds
@@ -70,9 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
         introImage.classList.add('heartbeat');
 
         // Make the "Start" button visible and fade it in
-        startButton.style.visibility = 'visible';
-        startButton.style.opacity = '1';
-        startButton.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-in effect
+        setTimeout(() => {
+            startButton.style.visibility = 'visible';
+            startButton.style.opacity = '1';
+            startButton.style.transition = 'opacity 0.5s ease-in-out';
+        }, 6000);
+         // Smooth fade-in effect
     });
 
     startButton.addEventListener('click', function() {
@@ -98,6 +104,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainContent.style.opacity = 1; // Fade in main content
             }, 10); // Delay to ensure display change is applied
         }, 2000); // Match the CSS transition duration
+    });
+
+    ccHeading.addEventListener('click', function() {
+        ccHeading.textContent= ''; // Hide the .cc container
+        introMessage.style.display = 'block'; // Make the intro-container h2 visible
+        introMessage.style.opacity = 1; // Ensure it is fully visible
+        introMessage.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-in effect
+
+        typeText(introMessage, messageText, 100); // Adjust delay as needed
     });
 
     const wishForm = document.getElementById('wishForm');

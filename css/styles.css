@@ -180,8 +180,9 @@ img{
 .intro-container {
     text-align: center;
     font-family: "gentium plus";
-    font-weight: 600;
-    color: #000000;
+    font-weight: 900;
+    font-size: 25px;
+    color: #380000;
 }
 
 .intro-container h2{
