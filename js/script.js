@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const introContainer = document.querySelector('.intro-container');
     const ccHeading = document.querySelector('#intro-container h1');
     const introMessage = document.querySelector('#intro-container h2');
-    const messageText = 'Wish you a very veryy<br>Happy Birthdayyyy <br> <img src="../assets/heart2.jpg" alt="">';
+    const messageText = 'Wish you a very veryy<br>Happy Birthdayyyy Babyy <br> <img src="../assets/heart2.jpg" alt="">';
+    const container = document.querySelector('.container');
 
 
     // Typing effect for the loading screen message
@@ -108,6 +109,10 @@ document.addEventListener('DOMContentLoaded', function() {
             mainContent.style.background = "url(../assets/bgh.jpg) repeat";
             mainContent.style.backgroundSize = "cover";
             mainContent.style.transition = 'opacity 0.5s ease-in-out';
+
+            container.style.backgroundColor = "rgba(236, 1, 217, 0.7)"; // Darken the background
+            const msgText = "wishing you a day as Beautiful as you are Bangaram 😘😘🤗🤗 Lovee youuu a lott Chinniiii";
+            typeText(introMsg, msgText, 100);
         }, 36000);
 
         setTimeout(() => {
@@ -151,15 +156,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function calculateAge(birthDate) {
         const now = new Date();
-        const diff = now - birthDate;
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-        const weeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const minutes = Math.floor(diff / (1000 * 60));
-        const seconds = Math.floor(diff / 1000);
+        let years = now.getFullYear() - birthDate.getFullYear();
+        let months = now.getMonth() - birthDate.getMonth();
+        let days = now.getDate() - birthDate.getDate();
+        let hours = now.getHours() - birthDate.getHours();
+        let minutes = now.getMinutes() - birthDate.getMinutes();
+        let seconds = now.getSeconds() - birthDate.getSeconds();
 
-        return { years, months, weeks, days, minutes, seconds };
+        // Adjust for negative values
+        if (seconds < 0) {
+            seconds += 60;
+            minutes--;
+        }
+        if (minutes < 0) {
+            minutes += 60;
+            hours--;
+        }
+        if (hours < 0) {
+            hours += 24;
+            days--;
+        }
+        if (days < 0) {
+            months--;
+            const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0); // Last day of the previous month
+            days += previousMonth.getDate();
+        }
+        if (months < 0) {
+            months += 12;
+            years--;
+        }
+
+        // Calculate total days
+        const diff = now - birthDate;
+        const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        return { years, months, days, hours, minutes, seconds };
     }
 
     function displayAge() {
@@ -170,9 +201,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const age = calculateAge(birthDate);
             if (ageDisplay) {
                 ageDisplay.innerHTML = `
-                    <p>Now my Aunty babyy is</p>
+                    <p>Now my Aunty turns</p>
                     <p>${age.years} years, ${age.months} months</p>
-                    <p>${age.weeks} weeks, ${age.days} days</p>
+                    <p>${age.days} days, ${age.hours} hours</p>
                     <p>${age.minutes} minutes, ${age.seconds} seconds old</p>
                 `;
             }
