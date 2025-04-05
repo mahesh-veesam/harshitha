@@ -1,20 +1,20 @@
-body{
+body {
     padding: 0px;
     margin: 0px;
-    font-family: "Inter", "gentium plus" ;
+    font-family: "Inter", "gentium plus";
 }
-main{
+main {
     z-index: -1;
     height: 100vh;
-    background-image: url(../assets/bday.jpg); /* Ensure the image path is correct */
-    background-position: center; 
+    background-image: url(../assets/bday.jpg);
+    background-position: center;
     background-size: contain;
-    backdrop-filter: blur(15px); /* Apply blur effect */
-    -webkit-backdrop-filter: blur(15px); /* For Safari support */
-    mix-blend-mode: darken; /* Blend the background with the overlay */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    mix-blend-mode: darken;
     padding: 30px;
 }
-.container{
+.container {
     position: relative;
     height: 90vh;
     width: 70%;
@@ -27,32 +27,31 @@ main{
     justify-content: space-evenly;
     align-items: center;
     background-color: #85087ac0;
-    backdrop-filter: blur(10px); /* Apply blur effect */
+    backdrop-filter: blur(10px);
     border-radius: 30% 10% 30% 10%;
     z-index: 999;
-    animation: zoomIn 5s linear forwards; 
+    animation: zoomIn 5s linear forwards;
 }
 @keyframes zoomIn {
-    0%{
-        transform: scale(0.6); /* Start smaller */
-        opacity: 1; /* Fully transparent */
+    0% {
+        transform: scale(0.6);
+        opacity: 1;
     }
-    70%{
-        transform: scale(1.08); /* Final size */
-        opacity: 1; /* Fully visible */
+    70% {
+        transform: scale(1.08);
+        opacity: 1;
     }
-    100%{
-        transform: scale(1); /* Final size */
-        opacity: 1; /* Fully visible */
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }
-
-.image{
+.image {
     height: 30vh;
     width: 20vw;
     margin: 2rem;
 }
-.msg{
+.msg {
     position: relative;
     width: 50%;
     color: white;
@@ -68,7 +67,6 @@ main{
         width: 100%;
     }
 }
-
 @keyframes blink {
     from, to {
         border-color: transparent;
@@ -77,15 +75,12 @@ main{
         border-color: white;
     }
 }
-
-img{
+img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 50px 20px 50px 20px;
-
 }
-
 #loading-screen {
     position: fixed;
     top: 0;
@@ -93,15 +88,14 @@ img{
     width: 100%;
     height: 100%;
     color: white;
-    background: linear-gradient(135deg, #000000, #141414); /* Gradient background */
+    background: linear-gradient(135deg, #000000, #141414);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    opacity: 1; /* Ensure it starts visible */
-    transition: opacity 1s ease-in-out; /* Smooth fade-out effect */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }
-
 .spinner {
     width: 50px;
     height: 50px;
@@ -110,26 +104,22 @@ img{
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-
 .loading-message {
     text-align: center;
     font-family: gentium plus;
     animation: fadeInOut 2s infinite;
 }
-
 .loading-message h1 {
     font-size: 2.5rem;
     text-shadow: 2px 2px 5px rgba(211, 0, 158, 0.2);
 }
-
 .loading-message h1, .intro-container h2 {
     text-align: center;
-    width: 100%; /* Ensure the text container takes full width */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide any overflow during typing */
-    display: inline-block; /* Keep the text inline */
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
 }
-
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -138,7 +128,6 @@ img{
         transform: rotate(360deg);
     }
 }
-
 @keyframes fadeInOut {
     0%, 100% {
         opacity: 1;
@@ -147,39 +136,34 @@ img{
         opacity: 0.5;
     }
 }
-
 #intro-tab {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(135deg, #ffffff, #ffffff); */
-    background:url(../assets/cake.jpg); /* Ensure the image path is correct */
-    background-repeat:no-repeat;
-    background-size:cover;
+    background: url(../assets/cake.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9998;
-    opacity: 1; /* Ensure it starts visible */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-out effect */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
-
 @media (max-width: 768px) {
     #intro-tab {
-        background-size: contain; /* Adjust background size for smaller screens */
-        background-position: center; /* Ensure proper centering */
+        background-size: contain;
+        background-position: center;
     }
 }
-
 @media (max-width: 480px) {
     #intro-tab {
-        background-size: cover; /* Further adjust background size for very small screens */
-        background-position: top; /* Align background to the top */
+        background-size: cover;
+        background-position: top;
     }
 }
-
 .intro-container {
     text-align: center;
     font-family: "gentium plus";
@@ -187,154 +171,116 @@ img{
     font-size: 25px;
     color: #380000;
 }
-
-.intro-container h2{
+.intro-container h2 {
     line-height: 50px;
 }
-
 .intro-container h2 img {
-    opacity: 1; /* Ensure full opacity */
-    width: 30%; /* Reduce the size of the image */
-    height: auto; /* Maintain aspect ratio */
-    margin: 10px auto; /* Center the image */
-    display: block; /* Ensure proper centering */
+    opacity: 1;
+    width: 30%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
     mix-blend-mode: darken;
-    /* Remove animation initially */
-    animation: heartbeat2 1.5s infinite; /* Add heartbeat animation */
+    animation: heartbeat2 1.5s infinite;
 }
-
 .heartbeat {
-    animation: heartbeat1 8s linear; /* Add heartbeat animation when the class is applied */
+    animation: heartbeat1 8s linear;
 }
-
 @keyframes heartbeat1 {
     0% {
-        transform: scale(1); /* Normal size */
+        transform: scale(1);
     }
-    100%{
-        transform: scale(1.2); /* Slightly larger */
+    100% {
+        transform: scale(1.2);
     }
 }
-
 @keyframes heartbeat2 {
     0%, 100% {
-        transform: scale(1); /* Normal size */
+        transform: scale(1);
     }
     50% {
-        transform: scale(1.3); /* Slightly larger */
+        transform: scale(1.3);
     }
 }
-
-/* .intro-container h2::after {
-    content: '|';
-    display: inline-block;
-    margin-left: 5px;
-    animation: blink 0.7s steps(2, start) infinite;
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-} */
-
 #start-button {
     margin-top: 20px;
     padding: 10px 50px;
     font-size: 1.2rem;
-    background-image: url(../assets/bgh.jpg); /* Set the image as the background */
-    background-size: cover; /* Ensure the image covers the button */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    color: rgb(29, 0, 0); /* Ensure text is visible over the image */
+    background-image: url(../assets/bgh.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(29, 0, 0);
     font-weight: 500;
     border: none;
     border-radius: 30px;
-    cursor: pointer; 
+    cursor: pointer;
     visibility: hidden;
-    animation: transform  0.5s ease-in-out; /* Apply the transform animation */
+    animation: transform 0.5s ease-in-out;
 }
-
 #start-button:hover {
-    transform: scale(1.3); /* Enlarge the button on hover */
-    transition: transform 0.5s ease-in-out; /* Ensure smooth scaling */
+    transform: scale(1.3);
+    transition: transform 0.5s ease-in-out;
 }
-
 main {
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
-
-/* Responsive styles for mobile devices */
 @media (max-width: 768px) {
     body {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px;
     }
-
     .container {
-        height: 80vh; /* Adjust height for smaller screens */
-        width: 90%; /* Increase width to fit smaller screens */
-        border-radius: 20% 10% 20% 10%; /* Adjust border radius */
-        padding: 10px; /* Add padding */
-        background-size: contain; /* Adjust background size for smaller screens */
-        background-position: center; /* Ensure proper centering */
+        height: 80vh;
+        width: 90%;
+        border-radius: 20% 10% 20% 10%;
+        padding: 10px;
+        background-size: contain;
+        background-position: center;
     }
-
     .msg {
-        font-size: 1.2rem; /* Reduce font size for smaller screens */
-        width: 80%; /* Adjust width for typing animation */
+        font-size: 1.2rem;
+        width: 80%;
     }
-
     .image {
-        height: 20vh; /* Reduce image height */
-        width: 40vw; /* Adjust image width */
-        margin: 1rem; /* Adjust margin */
+        height: 20vh;
+        width: 40vw;
+        margin: 1rem;
     }
-
     #start-button {
-        font-size: 1rem; /* Adjust button font size */
-        padding: 8px 30px; /* Adjust button padding */
+        font-size: 1rem;
+        padding: 8px 30px;
     }
-
     .intro-container img {
-        width: 70%; /* Adjust image size */
-        margin: 5px auto; /* Adjust margin */
+        width: 70%;
+        margin: 5px auto;
         mix-blend-mode: darken;
     }
-
     main {
-        padding: 20px; /* Adjust padding for smaller screens */
+        padding: 20px;
     }
 }
-
 @media (max-width: 480px) {
     .container {
-        height: 88vh; /* Further adjust height for very small screens */
-        width: 95%; /* Increase width to fit smaller screens */
-        border-radius: 15% 5% 15% 5%; /* Adjust border radius */
-        background-size: cover; /* Further adjust background size for very small screens */
-        background-position: top; /* Align background to the top */
+        height: 88vh;
+        width: 95%;
+        border-radius: 15% 5% 15% 5%;
+        background-size: cover;
+        background-position: top;
     }
-
     .msg {
-        font-size: 1rem; /* Further reduce font size */
+        font-size: 1rem;
     }
-
     .image {
-        height: 15vh; /* Further reduce image height */
-        width: 50vw; /* Adjust image width */
+        height: 15vh;
+        width: 50vw;
     }
-
     #start-button {
-        font-size: 0.9rem; /* Further adjust button font size */
-        padding: 6px 20px; /* Adjust button padding */
+        font-size: 0.9rem;
+        padding: 6px 20px;
     }
-
     .intro-container img {
-        width: 80%; /* Further adjust image size */
+        width: 80%;
         mix-blend-mode: darken;
     }
 }
