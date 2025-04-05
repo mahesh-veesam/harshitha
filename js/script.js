@@ -23,6 +23,7 @@ function typeText(element, text, delay = 100) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    let x = 0;
     console.log('DOM fully loaded'); // Debugging log
     const loadingScreen = document.getElementById('loading-screen');
     const introTab = document.getElementById('intro-tab');
@@ -40,7 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     typeText(loadingMessage, loadingText, 150); // Adjust delay as needed
 
     const introAudio1 = new Audio('../assets/song1.mp3'); // First audio file
-    const introAudio2 = new Audio('../assets/song.mp3'); // Second audio file
+    const introAudio2 = new Audio('../assets/song2.mp3'); // Second audio file
+    introAudio1.volume = 0.3;
+    introAudio2.volume = 0.3;
     const introImage = document.querySelector('#intro-tab'); // Select the image in h2
 
     
@@ -54,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             loadingScreen.style.display = 'none'; // Hide after fade-out
             introTab.style.display = 'flex'; // Show intro tab
- 
-           
 
         }, 1000); // Match the CSS transition duration
     }, 1800); // Set loading screen time to 5 seconds
@@ -63,21 +64,24 @@ document.addEventListener('DOMContentLoaded', function() {
     introImage.addEventListener('click', function() {
         
         introAudio1.play();
-
-        // introAudio2.currentTime = 0; // Reset the second audio to the beginning
-        // introAudio2.play().catch((error) => {
-        //     console.log('Audio playback failed:', error);
-        // }); // Play the second audio when the image is clicked
-
-        // Add the heartbeat animation class to the image
         introImage.classList.add('heartbeat');
 
-        // Make the "Start" button visible and fade it in
+        ccHeading.textContent= ''; // Hide the .cc container
+        introMessage.style.display = 'block'; // Make the intro-container h2 visible
+        introMessage.style.opacity = 1; // Ensure it is fully visible
+        introMessage.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-in effect
+
+        if(x == 0){
+            typeText(introMessage, messageText, 100);
+            x = 1;
+        } 
+
         setTimeout(() => {
+            displayAge();
             startButton.style.visibility = 'visible';
             startButton.style.opacity = '1';
             startButton.style.transition = 'opacity 0.5s ease-in-out';
-        }, 6000);
+        }, 8000);
          // Smooth fade-in effect
     });
 
@@ -85,34 +89,34 @@ document.addEventListener('DOMContentLoaded', function() {
         introAudio1.pause(); // Stop the first audio when the user clicks the "Start" button
         introAudio1.muted = true;
         introAudio2.play();
+
+         // Call the function to display the age before fading out the intro tab
+
         introTab.style.opacity = 0; // Fade out intro tab
         introTab.style.transition = 'opacity 0.3s ease-in-out';
 
         const introMsg = document.querySelector('.container .msg');
-        const msgText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis ipsum odit eaque officiis rem dolore vel incidunt facilis et ut corporis qui, unde dolores omnis beatae sed assumenda quo nemo";
-        typeText(introMsg, msgText, 100); 
+        const msgText = "Happyyy Birthdayy to my dearest person Ever in my life 🎂 🍾🎉🥳💗💖 Nuvvu matladina matladakapoina naaku nee meedha vunna everything eppudu alaane vuntadhi, idhavaruku la continue avvakapoina, u r my best friend eppatikaina, whatever happens between us I will always be there for u ❤ becoz u r my 🫶 😅";
+        typeText(introMsg, msgText, 100);
 
         setTimeout(() => {
-            mainContent.style.background = "white"
-            mainContent.style.transition = 'opacity 0.5s ease-in-ouut'
-        },12000)
+            mainContent.style.backgroundSize = "auto";
+            mainContent.style.transition = 'opacity 1s ease-in-out';
+        }, 5000);
+
+        setTimeout(() => {
+            mainContent.style.background = "url(../assets/bgh.jpg) repeat";
+            mainContent.style.backgroundSize = "cover";
+            mainContent.style.transition = 'opacity 0.5s ease-in-out';
+        }, 36000);
 
         setTimeout(() => {
             introTab.style.display = 'none'; // Hide intro tab
             mainContent.style.display = 'block'; // Show main content
             setTimeout(() => {
                 mainContent.style.opacity = 1; // Fade in main content
-            }, 10); // Delay to ensure display change is applied
-        }, 2000); // Match the CSS transition duration
-    });
-
-    ccHeading.addEventListener('click', function() {
-        ccHeading.textContent= ''; // Hide the .cc container
-        introMessage.style.display = 'block'; // Make the intro-container h2 visible
-        introMessage.style.opacity = 1; // Ensure it is fully visible
-        introMessage.style.transition = 'opacity 0.5s ease-in-out'; // Smooth fade-in effect
-
-        typeText(introMessage, messageText, 100); // Adjust delay as needed
+            }, 1000); // Delay to ensure display change is applied
+        }, 1500); // Match the CSS transition duration
     });
 
     const wishForm = document.getElementById('wishForm');
@@ -144,4 +148,37 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         }
     });
+
+    function calculateAge(birthDate) {
+        const now = new Date();
+        const diff = now - birthDate;
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+        const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+        const weeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const minutes = Math.floor(diff / (1000 * 60));
+        const seconds = Math.floor(diff / 1000);
+
+        return { years, months, weeks, days, minutes, seconds };
+    }
+
+    function displayAge() {
+        const birthDate = new Date('2006-04-06'); // Replace with the actual birth date
+        const ageDisplay = document.querySelector('#age-display');
+
+        function updateAge() {
+            const age = calculateAge(birthDate);
+            if (ageDisplay) {
+                ageDisplay.innerHTML = `
+                    <p>Now my Aunty babyy is</p>
+                    <p>${age.years} years, ${age.months} months</p>
+                    <p>${age.weeks} weeks, ${age.days} days</p>
+                    <p>${age.minutes} minutes, ${age.seconds} seconds old</p>
+                `;
+            }
+        }
+
+        updateAge(); // Initial update
+        setInterval(updateAge, 1000); // Update every second
+    }
 });

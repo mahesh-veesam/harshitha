@@ -8,6 +8,7 @@ main{
     height: 100vh;
     background-image: url(../assets/bday.jpg); /* Ensure the image path is correct */
     background-position: center; 
+    background-size: contain;
     backdrop-filter: blur(15px); /* Apply blur effect */
     -webkit-backdrop-filter: blur(15px); /* For Safari support */
     mix-blend-mode: darken; /* Blend the background with the overlay */
@@ -20,25 +21,27 @@ main{
     margin: 30% auto;
     margin-top: 0px;
     margin-bottom: 20px;
-    padding: 1px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: #8b1982;
-    /* background: url(../assets/bgc.jpg); */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
+    background-color: #85087ac0;
+    backdrop-filter: blur(10px); /* Apply blur effect */
     border-radius: 30% 10% 30% 10%;
     z-index: 999;
-    animation: zoomIn 5s ease-in forwards; /* Apply the updated zoom-in animation */
+    animation: zoomIn 5s linear forwards; 
 }
 @keyframes zoomIn {
-    0% {
-        transform: scale(0.1); /* Start smaller */
+    0%{
+        transform: scale(0.6); /* Start smaller */
         opacity: 1; /* Fully transparent */
     }
-    100% {
+    70%{
+        transform: scale(1.08); /* Final size */
+        opacity: 1; /* Fully visible */
+    }
+    100%{
         transform: scale(1); /* Final size */
         opacity: 1; /* Fully visible */
     }
@@ -201,7 +204,7 @@ img{
 }
 
 .heartbeat {
-    animation: heartbeat1 10s linear; /* Add heartbeat animation when the class is applied */
+    animation: heartbeat1 8s linear; /* Add heartbeat animation when the class is applied */
 }
 
 @keyframes heartbeat1 {
@@ -252,6 +255,7 @@ img{
     border-radius: 30px;
     cursor: pointer; 
     visibility: hidden;
+    animation: transform  0.5s ease-in-out; /* Apply the transform animation */
 }
 
 #start-button:hover {
