@@ -26,9 +26,9 @@ main{
     justify-content: center;
     align-items: center;
     background-color: #8b1982;
-    /* background: url(../assets/bgc.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; */
+    /* background: url(../assets/bgc.jpg); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
     border-radius: 30% 10% 30% 10%;
     z-index: 999;
     animation: zoomIn 5s ease-in forwards; /* Apply the updated zoom-in animation */
@@ -153,14 +153,28 @@ img{
     height: 100%;
     /* background: linear-gradient(135deg, #ffffff, #ffffff); */
     background:url(../assets/cake.jpg); /* Ensure the image path is correct */
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat:no-repeat;
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9998;
     opacity: 1; /* Ensure it starts visible */
     transition: opacity 0.5s ease-in-out; /* Smooth fade-out effect */
+}
+
+@media (max-width: 768px) {
+    #intro-tab {
+        background-size: contain; /* Adjust background size for smaller screens */
+        background-position: center; /* Ensure proper centering */
+    }
+}
+
+@media (max-width: 480px) {
+    #intro-tab {
+        background-size: cover; /* Further adjust background size for very small screens */
+        background-position: top; /* Align background to the top */
+    }
 }
 
 .intro-container {
@@ -260,6 +274,8 @@ main {
         width: 90%; /* Increase width to fit smaller screens */
         border-radius: 20% 10% 20% 10%; /* Adjust border radius */
         padding: 10px; /* Add padding */
+        background-size: contain; /* Adjust background size for smaller screens */
+        background-position: center; /* Ensure proper centering */
     }
 
     .msg {
@@ -291,9 +307,11 @@ main {
 
 @media (max-width: 480px) {
     .container {
-        height: 75vh; /* Further adjust height for very small screens */
+        height: 88vh; /* Further adjust height for very small screens */
         width: 95%; /* Increase width to fit smaller screens */
         border-radius: 15% 5% 15% 5%; /* Adjust border radius */
+        background-size: cover; /* Further adjust background size for very small screens */
+        background-position: top; /* Align background to the top */
     }
 
     .msg {
