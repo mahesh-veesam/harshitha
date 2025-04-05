@@ -25,7 +25,10 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #75186e;
+    background-color: #8b1982;
+    /* background: url(../assets/bgc.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
     border-radius: 30% 10% 30% 10%;
     z-index: 999;
     animation: zoomIn 5s ease-in forwards; /* Apply the updated zoom-in animation */
@@ -77,6 +80,7 @@ img{
     width: 100%;
     object-fit: cover;
     border-radius: 50px 20px 50px 20px;
+
 }
 
 #loading-screen {
@@ -85,7 +89,8 @@ img{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #430350, #c9c4fa); /* Gradient background */
+    color: white;
+    background: linear-gradient(135deg, #000000, #141414); /* Gradient background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,7 +151,10 @@ img{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #ff99c9, #9aa9ff);
+    /* background: linear-gradient(135deg, #ffffff, #ffffff); */
+    background:url(../assets/cake.jpg); /* Ensure the image path is correct */
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,11 +167,44 @@ img{
     text-align: center;
     font-family: "gentium plus";
     font-weight: 600;
-    color: #333;
+    color: #000000;
 }
 
 .intro-container h2{
     line-height: 50px;
+}
+
+.intro-container h2 img {
+    opacity: 1; /* Ensure full opacity */
+    width: 30%; /* Reduce the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px auto; /* Center the image */
+    display: block; /* Ensure proper centering */
+    mix-blend-mode: darken;
+    /* Remove animation initially */
+    animation: heartbeat2 1.5s infinite; /* Add heartbeat animation */
+}
+
+.heartbeat {
+    animation: heartbeat1 10s linear; /* Add heartbeat animation when the class is applied */
+}
+
+@keyframes heartbeat1 {
+    0% {
+        transform: scale(1); /* Normal size */
+    }
+    100%{
+        transform: scale(1.2); /* Slightly larger */
+    }
+}
+
+@keyframes heartbeat2 {
+    0%, 100% {
+        transform: scale(1); /* Normal size */
+    }
+    50% {
+        transform: scale(1.3); /* Slightly larger */
+    }
 }
 
 /* .intro-container h2::after {
@@ -183,43 +224,29 @@ img{
 } */
 
 #start-button {
-    margin-top: -20px;
+    margin-top: 20px;
     padding: 10px 50px;
     font-size: 1.2rem;
-    background-color: #490037;
-    color: white;
+    background-image: url(../assets/bgh.jpg); /* Set the image as the background */
+    background-size: cover; /* Ensure the image covers the button */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: rgb(29, 0, 0); /* Ensure text is visible over the image */
+    font-weight: 500;
     border: none;
     border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    visibility: hidden; /* Initially hidden */
-    opacity: 0; /* Fully transparent */
-    animation: showButton 1s ease-in-out 5s forwards; /* Delay visibility until h2 animation completes */
-}
-
-@keyframes showButton {
-    to {
-        visibility: visible; /* Make it visible */
-        opacity: 1; /* Fully opaque */
-    }
+    cursor: pointer; 
+    visibility: hidden;
 }
 
 #start-button:hover {
-    background-color: #ac008f;
+    transform: scale(1.3); /* Enlarge the button on hover */
+    transition: transform 0.5s ease-in-out; /* Ensure smooth scaling */
 }
 
 main {
     opacity: 0; /* Initially hidden */
     transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
-}
-
-.intro-container img {
-    opacity: 0.7; /* Make the image slightly transparent */
-    width: 50%; /* Reduce the size of the image */
-    height: auto; /* Maintain aspect ratio */
-    margin: 10px auto; /* Center the image */
-    display: block; /* Ensure proper centering */
-    mix-blend-mode:darken;
 }
 
 /* Responsive styles for mobile devices */
@@ -254,6 +281,7 @@ main {
     .intro-container img {
         width: 70%; /* Adjust image size */
         margin: 5px auto; /* Adjust margin */
+        mix-blend-mode: darken;
     }
 
     main {
@@ -284,5 +312,6 @@ main {
 
     .intro-container img {
         width: 80%; /* Further adjust image size */
+        mix-blend-mode: darken;
     }
 }
