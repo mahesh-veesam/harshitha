@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         introTab.style.transition = 'opacity 0.3s ease-in-out';
 
         const introMsg = document.querySelector('.container .msg');
-        const msgText = "Happyyy Birthdayy to my dearest person Ever in my life 🎂 🍾🎉🥳💗💖 Nuvvu matladina matladakapoina naaku nee meedha vunna everything eppudu alaane vuntadhi, idhavaruku la continue avvakapoina, u r my best friend eppatikaina, whatever happens between us I will always be there for u ❤ becoz u r my 🫶 😅";
+        const msgText = "Happyyy Birthdayy to my dearest person Ever in my life 🎂 🍾🎉🥳💗💖 Nuvvu matladina matladakapoina naaku nee meedha vunna everything eppudu alaane vuntadhi, idhavaruku la continue avvakapoina, u r my best friend eppatikaina,but I may not be meant for u, anyways whatever happens between us I will always be there for u ❤ becoz u r my 🫶 😅";
         typeText(introMsg, msgText, 100);
 
         setTimeout(() => {
